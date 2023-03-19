@@ -17,14 +17,14 @@ public class MemberRepository {
 
     public List<Member> findMembers() {
         System.out.println("MemberRepository.findMembers");
-        return jdbcTemplate.query("SELECT * FROM MEMBER", memberDTORowMapper());
+        return jdbcTemplate.query("SELECT * FROM member", memberDTORowMapper());
     }
 
     private RowMapper<Member> memberDTORowMapper() {
         return (rs, rowNum) -> {
             Member Member = new Member();
-            Member.setUsername(rs.getString("USERNAME"));
-            Member.setPassword(rs.getString("PASSWORD"));
+            Member.setUsername(rs.getString("username"));
+            Member.setPassword(rs.getString("password"));
             return Member;
         };
     }
